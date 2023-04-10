@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1e2124;
+    color: gainsboro;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10px 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: gainsboro;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: default;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: gainsboro;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 35px;
+    transition: .35s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: cyan;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 70px 10px 0;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.home-content h3 span {
+    color: cyan;
+    text-decoration: underline;
+}
+
+.home-img img {
+    max-width: 450px;
+    transform: translateY(0px);
+    animation: float 6s ease-in-out infinite;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+  
+    50% {
+      transform: translateY(-30px);
+    }
+  
+    100% {
+      transform: translateY(0px);
+    }
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-items: center;
+    width: 40px;
+    height: 1px;
+    font-size: 20px;
+    color: cyan;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    font-size: 29px;
+    margin-left: 5%;
+    transition: .35s;
+}
+
+.social-media a:hover {
+    color: gainsboro;
+}
+
+.btn {
+    margin-top: 14px;
+    display: inline-block;
+    padding: 12px 28px;
+    background: cyan;
+    border-radius: 40px;
+    color: 	#36393e;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 15%;
+    transition: .35s;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+}
+
+.footer-text p {
+    font-weight: bold;
+    color: gainsboro;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+    section {
+        padding: 10rem 3% 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+    }
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+    .social-media a { 
+        display: none;
+    }
+    .btn { 
+        font-size: 16px;
+    }
+    .home-img img {
+        width: 40vw;
+    }
+}
