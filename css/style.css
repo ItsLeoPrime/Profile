@@ -45,6 +45,7 @@ body {
 .navbar a:hover,
 .navbar a.active {
     color: cyan;
+    text-decoration: underline;
 }
 
 .home {

@@ -1,0 +1,227 @@
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  }
+  body {
+  background-color: #1e2124;
+  }
+
+  section {
+  height: 100vh;
+  width: 100%;
+  background-color: #1e2124;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 5%;
+  }
+  
+  img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block
+  }
+  
+  .container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 15px 0px 20px #00000010;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  border: 5px solid cyan;
+  }
+  .form-group {
+  font-family: prompt, sans-serif;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+  }
+  .form-group input,
+  .form-group textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  border: 15x solid cyan;
+  margin-top: 5px;
+  background-color: lightgray;
+  }
+  
+  h2 {
+  display: block;
+  margin-top: 50px;
+  padding-top: 60px;
+  padding-bottom: 10;
+  font-family: prompt, sans-serif;
+  font-size: calc(1.325rem + .9vw);
+  text-align: center;
+  text-shadow: wheat;
+  }
+  textarea {
+  resize: vertical;
+  }
+  button[type="submit"] {
+  background-color: cyan;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 8px;
+  font-family: prompt, sans-serif;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease background-color;
+  }
+  button[type="submit"]:hover {
+  background-color: grey;
+  }
+  #status {
+  width: 50%;
+  max-width: 400px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 15x solid black;
+  }
+  #status.success {
+  font-family: prompt, sans-serif;
+  font-weight: bold;
+  color: black;
+  background-color: cyan;
+  animation: status 4s ease forwards;
+  }
+  #status.error {
+  font-family: prompt, sans-serif;
+  font-weight: bold;
+  color: black;
+  background-color: cyan;
+  animation: status 4s ease forwards;
+  }
+  @keyframes status {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  }
+  </style>
+  <script>
+  window.addEventListener("DOMContentLoaded", function () {
+  
+  var form = document.getElementById("my-form");
+  var status = document.getElementById("status");
+  
+  function success() {
+  form.reset();
+  status.classList.add("success");
+  status.innerHTML = "Successfully Sumbited";
+  setTimeout(function() {
+    window.location.reload();
+    }, 5000);
+  }
+  
+  function error() {
+  status.classList.add("error");
+  status.innerHTML = "Something Went Wrong!";
+  setTimeout(function() {
+    window.location.reload();
+    }, 5000);
+  }
+  
+  form.addEventListener("submit", function (ev) {
+  ev.preventDefault();
+  var data = new FormData(form);
+  ajax(form.method, form.action, data, success, error);
+  });
+  });
+  
+  // helper function for sending an AJAX request
+  
+  function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+  if (xhr.readyState !== XMLHttpRequest.DONE) return;
+  if (xhr.status === 200) {
+    success(xhr.response, xhr.responseType);
+  } else {
+    error(xhr.status, xhr.response, xhr.responseType);
+  }
+  };
+  xhr.send(data);
+  }
+  </script>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="twitter:image" content="https://media.discordapp.net/attachments/899154879027765288/1094672122472845322/IMG_20220129_152828_116.jpg?width=610&height=610">
+    <meta name="theme-color" content="#00FFFF">
+    <meta name="description" content="Not born to be the Best but want to be better than the Best!">
+    <title>Leo Prime: Portfolio</title>
+    <link rel="icon" href="https://media.discordapp.net/attachments/899154879027765288/1094672122472845322/IMG_20220129_152828_116.jpg?width=610&height=610">
+    <link rel="stylesheet" href="css/style.css" class="style">
+</head>
+  
+  <body>
+    <header class="header">
+        <a href="#" class="logo">Leo Prime</a>
+
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="#" class="active">Contact</a>
+            <a href="https://www.instagram.com/itsleoprime" target="_blank">Instagram</a>
+            <a href="https://twitter.com/ItsLeoPrime" target="_blank">Tweeter</a>
+            <a href="https://discord.com/invite/Ff6QWst2DC" target="_blank">Discord</a>
+            <a href="https://github.com/ItsLeoPrime" target="_blank">Github</a>
+        </nav>
+</header>
+   
+  <section class="home">
+    <div class="home-content">
+      <form action="https://formspree.io/f/mzbqkeye" method="POST" id="my-form">
+  
+        <div class="form-group">
+          <span style="font-weight: bold; font-size: 25px; color: #fff;">Your Name:</span>
+          <input type="text" id="firstName" name="firstName">
+        </div>
+  
+        <div class="form-group">
+          <span style="font-weight: bold; font-size: 25px; color: #fff;">Email Address:</span>
+          <input type="email" id="email" name="email">
+        </div>
+  
+        <div class="form-group">
+          <span style="font-weight: bold; font-size: 25px; color: #fff;">Message:</span>
+          <textarea name="massage" id="massage" cols="30" rows="10"></textarea>
+        </div>
+  
+        <div id="status"></div>
+        <button type="submit">Submit</button>
+      </form>
+</div>
+  </section>
+      <footer class="footer">
+        <div class="footer-text">
+            <p>All rights reserved 2023 | Made by <a style="color: gainsboro;" href="https://kirabot.site/team" target="_blank">Vaibhav Singh</a> with 💖</p>
+        </div>
+    </footer>
+</body>
